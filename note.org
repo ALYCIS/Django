@@ -3,3 +3,76 @@
 #+date: <2022-11-04 ven.>
 
 
+* Les étapes pour l'utilisation de django
+** On install et lance l'environnement virtuel :
+python3 -m venv env : permet créer l'environnement.
+source env/bin/activate : permet d'activer l'environnement
+pip install Django: install django
+pip freeze > requirements.txt : liste les besoins dans le fichiers txt
+django-admin startproject nom_projet : permet de créer notre projet
+** Dans le repertoire <nom_projet> :
+python manage.py runserver -> permet lancer le server
+python manage.py migration  -> permet de créer le fichier sqlLite3
+python manage.py startapp listings -> permet d'installer une application <listings> : comme un composant
+
+
+** suite :
+On doit également installer notre application <listings> en modifiant le fichier settings.py
+à la fin, on ajoute 'listings'
+
+- ensuite dans le fichier listings/views.py :
+  on import un librairie :
+
+  #+begin_src  python
+    from django.http import HttpResponse
+    from django.shortcuts import render
+
+    def hello(request):
+        return HttpResponse("<h1>Hello somes html django view </h1>")
+  #+end_src
+
+Une fois cette vue définie, on doit l'associer à une url.
+dans le fichier  merchex/urls.py
+
+    on import la vue
+
+    #+begin_src python
+      from listings import views
+
+      urlpatterns = [
+          path('admin/', admin.site.urls),
+          path('hello/',views.hello),
+          ]
+    #+end_src
+  On pourra donc lancer notre server en mettant la root /hello pour aficher le html proposé.
+  en lancant le server : python manage.py runserver.
+
+  Il ne faut pas tapper /hello/ mais il faut toujours taper hello/
+
+
+
+python manage.py shell
+>>> from listings.models import Band
+>>> band = Band()
+>>> band.name = 'De la Soul'
+>>> band
+<Band: Band object (None)>
+>>> band.save()
+>>> band
+<Band: Band object (1)>
+>>> band = Band()
+>>> band.name = 'Cut copy'
+>>> band.save()
+>>> band
+<Band: Band object (2)>
+>>> band = Band.objects.create(name='Foo Fighters')
+>>> band
+<Band: Band object (3)>
+>>> Band.objects.court()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Manager' object has no attribute 'court'
+>>> Band.objects.count()
+3
+>>> Band.objects.all()
+<QuerySet [<Band: Band object (1)>, <Band: Band object (2)>, <Band: Band object
