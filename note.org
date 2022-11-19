@@ -76,3 +76,11 @@ AttributeError: 'Manager' object has no attribute 'court'
 3
 >>> Band.objects.all()
 <QuerySet [<Band: Band object (1)>, <Band: Band object (2)>, <Band: Band object
+
+
+* Ecommerce
+Pour la créer de ce site, on a dabord créer notre projet avec les commandes
+#+begin_quote
+django-admin startproject ecommerce
+django-admin startapp shop
+#+end_quote
