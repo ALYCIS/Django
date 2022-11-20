@@ -81,6 +81,14 @@ AttributeError: 'Manager' object has no attribute 'court'
 * Ecommerce
 Pour la créer de ce site, on a dabord créer notre projet avec les commandes
 #+begin_quote
-django-admin startproject ecommerce
+django-admin startproject ecommerce <et>
 django-admin startapp shop
 #+end_quote
+
+Une fois le projet créer, on part dans le settings du projet pour ajouter les
+configuration comme dans le projet précédent.
+
+** Création super admin
+
+ + python manage.py createsuperuser
+   Username et Password

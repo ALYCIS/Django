@@ -5,8 +5,13 @@ class Category(models.Model):
     name = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now=True)
 
+    # Permet d'ordonner l'ajout, pour qu'il soit en tête de liste
     class Meta:
         ordering = ['-date_added']
+
+    # Permet d'afficher le nom directement sur le site
+    def __str__(self) -> str:
+        return self.name
 
 class Product(models.Model):
     title = models.CharField(max_length=200)
@@ -18,3 +23,6 @@ class Product(models.Model):
 
     class Meta:
         ordering = ['-date_added']
+
+    def __str__(self) -> str:
+        return self.title
