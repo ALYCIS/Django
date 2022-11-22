@@ -22,5 +22,6 @@ urlpatterns = [
     path('hello/',views.hello),
     path('about-us/',views.about),
     path('helloBands/',views.helloBand),
-    path('listTitles/',views.AfficheTitres)
+    path('listTitles/',views.AfficheTitres),
+    path('listCategory/',views.ListeCategory)
 ]

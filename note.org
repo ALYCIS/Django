@@ -116,8 +116,13 @@ AttributeError: 'Manager' object has no attribute 'court'
    Deuxième méthode pour savegarder un object
 
    #+begin_src python
-   cate = cate.objects.create(name='Fuits')
+     cate = cate.objects.create(name='Fuits')
+     cate.name # Permet de recuperer le nom
+     cate.objects.count() # donne le nombre d'objects
+     cate.objects.all() # liste l'ensemble des objects
    #+end_src
+
+   
 
 * Ecommerce
 Pour la crÃ©er de ce site, on a dabord crÃ©er notre projet avec les commandes

@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from listings.models import Band
 from listings.models import Title
+from listings.models import category
 
 # Create your views here.
 def hello(request):
@@ -29,4 +30,15 @@ def AfficheTitres(request):
 
         </ol>
 
+    """)
+
+def ListeCategory(request):
+    Categorys = category.objects.all()
+    return HttpResponse(f"""
+    <p> La liste des catégories </p>
+    <ol>
+            <li>{Categorys[0].name} </li>
+            <li>{Categorys[1].name} </li>
+            <li>{Categorys[2].name} </li>
+        </ol>
     """)
