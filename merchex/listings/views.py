@@ -13,7 +13,10 @@ def about(request):
 
 def helloBand(request):
     bands = Band.objects.all()
-    return render(request, 'listings/hello.html')
+    return render(request, 
+        'listings/hello.html',
+        {'first_band':bands.count()}
+        )
     
 
 def AfficheTitres(request):
@@ -27,18 +30,13 @@ def AfficheTitres(request):
             <li>{titres[2].title} </li>
             <li>{titres[3].title} </li>
             <li>{titres[4].title} </li>
-
         </ol>
 
     """)
 
 def ListeCategory(request):
     Categorys = category.objects.all()
-    return HttpResponse(f"""
-    <p> La liste des catégories </p>
-    <ol>
-            <li>{Categorys[0].name} </li>
-            <li>{Categorys[1].name} </li>
-            <li>{Categorys[2].name} </li>
-        </ol>
-    """)
+    return render(request,
+    'listings/helloCategory.html',
+    {'cat':Categorys}
+    )
