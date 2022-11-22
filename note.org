@@ -78,6 +78,47 @@ AttributeError: 'Manager' object has no attribute 'court'
 <QuerySet [<Band: Band object (1)>, <Band: Band object (2)>, <Band: Band object
 
 
+*** Une migration:
+    Une migration est un esemble d'instructions permettant de passer le schéma de votre base de données
+    d'un état à un autre. Il est important de noter que ces instructions peuvent être exécutées automatiquement, comme un code.
+
+    <<Configuration par le code >>s s: toutes les étapes nécessaires à la construction d'une application ne doivent pas être
+    effectuées à la main, mais plutôt inscrites dans le code.
+
+** Enregistrement des objets dans la base de donnée
+   On ajoute dans le model.py, la classe correspondante
+   #+begin_src python
+     # dans le fichier models.py
+	  class category(models.Model):
+	       name = models.fields.CharField(max_length=100)
+	       description = models.fields.TextField()
+   #+end_src
+
+   On passe au shell python, puis on effectue une migration: avec la commande
+   #+begin_src shell
+     python manage.py makemigrations
+     python manage.py migrate
+   #+end_src
+
+   Maintenant on peut enregistrer des objets dans la base de données dans le shell de Django
+   On passe dans le shell en python: python manage.py shell
+   #+begin_src python
+     from listings.models import Band
+
+     cate = Category()
+     cate.name = 'Fruits'
+     cate.description = 'Petite description'
+
+     cate # pour afficher l'objet
+     cate.save()
+   #+end_src
+
+   Deuxième méthode pour savegarder un object
+
+   #+begin_src python
+   cate = cate.objects.create(name='Fuits')
+   #+end_src
+
 * Ecommerce
 Pour la crÃ©er de ce site, on a dabord crÃ©er notre projet avec les commandes
 #+begin_quote

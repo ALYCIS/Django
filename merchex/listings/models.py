@@ -7,3 +7,7 @@ class Band(models.Model):
 
 class Title(models.Model):
     title = models.fields.CharField(max_length=100)
+
+class category(models.Model):
+    name = models.fields.CharField(max_length=100)
+    description = models.fields.TextField()
