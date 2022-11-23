@@ -1,5 +1,5 @@
 # listings/templates/listings/hello.html
-
+<!DOCTYPE html>
 <html>
     <head><title>Merchex</title></head>
     <body>
@@ -10,5 +10,8 @@
             <li>{{ first_band }} </li>
             <li>{{first_band.name}} </li>
         </ul>
+        <h1>Mes catégories sont :</h1>
+
+        {% block content %}{% endblock content %}
     </body>
 </html>

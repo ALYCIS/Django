@@ -147,6 +147,33 @@ AttributeError: 'Manager' object has no attribute 'court'
 
    Sans l'utilisation du MVT, notre vue aura deux responsabilités: recup les données et les afficher.
 
+*** Utilisation d'un filtre de gaarits dans un gabarit:
+    On peut utiliser par exemple : lower et upper
+
+    #+begin_src html
+      <li>{{ band.name|upper }}</li>
+      <li>{{ band.name|lower }}</li>
+      <li>{{ bands|length }}</li>
+    #+end_src
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
 * Ecommerce
 Pour la crÃ©er de ce site, on a dabord crÃ©er notre projet avec les commandes
 #+begin_quote

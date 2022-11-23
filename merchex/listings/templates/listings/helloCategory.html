@@ -1,25 +1,20 @@
-<html>
-    <head><title>Merchex</title></head>
-    <body>
-        <h1>Hello Django !</h1>
-        <p>La liste des catégories :</p>
-        <ul>
-            <li>{{ cat.0.name }} </li>
-            <li>{{ cat.1.name }} </li>
-            <li>{{ cat.2.name }} </li>
-        </ul>
+{% extends 'listings/hello.html' %}
 
-        <p> On a les mêmes affichages, mais avec la description </p>
-        <ol>
-            {% for category in cat %}
-                <li> 
-                    {{category.name}}:
-                    <ul>
-                        <li>{{category.description}}</li>
-                    </ul>
-                </li>
-                
-            {% endfor %}
-        </ol>
-    </body>
-</html>
+{% block content %}
+
+<p> On a les mêmes affichages, mais avec la description </p>
+<ol>
+    {% for category in cat %}
+        <li> 
+            {{category.name}}:
+            <ul>
+                <li>{{category.description}}</li>
+            </ul>
+        </li>
+        
+    {% endfor %}
+</ol>
+
+{% endblock content %}
+
+
